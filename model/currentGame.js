@@ -93,9 +93,9 @@ module.exports.end = async () => {
     });
   });
 
-  await Promise.all(promises).then((() => console.log('Stats saved successfully:', currentGame) ))catch(err =>
-    console.error('Unable to save stats:', currentGame, err)
-  );
+  await Promise.all(promises)
+    .then(() => console.log('Stats saved successfully:', currentGame))
+    .catch(err => console.error('Unable to save stats:', currentGame, err));
 
   currentGame = null;
 };
