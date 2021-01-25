@@ -2,35 +2,17 @@ const formatString = require('../util/formatString');
 const wait = require('../util/wait');
 const currentGame = require('../model/currentGame');
 
-const authorizedPlayFabIDs = new Set([
-  // Marklar
-  '59BB3CF55044CB94',
-  // Kilo
-  'F1F4BCA08D3EAD0',
-  // Bane
-  'DE10DAF48BD542CC',
-  // Villain
-  '8E35471AB130C1C2',
-  // Crabby
-  '42EE260285EF9A4D',
-  // Lowflip
-  'B7AAED17B868C621',
-  // ClinicallyLazy
-  'AA6380B4A04CCA37'
-]);
+const authorizedPlayFabIDs = new Set(process.env.AUTHORIZED_ADMINS.trim().split(' '));
+
+console.log('AUTHORIZED PLAY FAB IDS:', authorizedPlayFabIDs);
 
 const validMaps = new Set(
-  [
-    'SKM_Steedie_Contraband',
-    'SKM_Contraband',
-    'SKM_Steedie_Moshpit_Big',
-    'SKM_Alden',
-    'SKM_Chester',
-    'SKM_Moshpit',
-    'SKM_steedie_Moshpit',
-    'SKM_Chasm'
-  ].map(item => item.toLowerCase())
+  process.env.VALID_MAPS.trim()
+    .split(' ')
+    .map(item => item.toLowerCase())
 );
+
+console.log('VALID MAPS:', validMaps);
 
 module.exports.process = async (rcon, message) => {
   const splitMessage = message.split(',');
@@ -50,7 +32,8 @@ module.exports.process = async (rcon, message) => {
 
     const mapsAreValid =
       maps.length > 0 &&
-      maps.every(map => typeof map === 'string' && validMaps.has(map.toLowerCase()));
+      (process.env.VALID_MAPS === '*' ||
+        maps.every(map => typeof map === 'string' && validMaps.has(map.toLowerCase())));
 
     if (currentGame.get()) {
       return await rcon.send(

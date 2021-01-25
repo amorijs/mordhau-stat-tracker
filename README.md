@@ -28,6 +28,18 @@
 
 - SRV link for your mongo database
 
+`AUTHORIZED_ADMINS`
+
+- Space separated group of playfabids that are authorized to use the chat commands in your mordhau server
+  - One way to obtain someones' playfabid is typing `playerlist` in console while they are in the server
+
+`VALID_MAPS`
+
+- Space separated group of map names that will be considered valid when a match is started
+  - If any map included in a `.startmatch` command is invalid, a match will not start
+- Not case sensitive
+- Set this value to `*` if you want all maps to be considered valid
+
 ## Optional Environment Variables
 
 `NODE_ENV`

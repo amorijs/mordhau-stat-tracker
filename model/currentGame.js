@@ -78,8 +78,6 @@ module.exports.end = async () => {
       });
     }
 
-    console.log('playertoupdate:', playerToUpdate);
-
     await playerToUpdate.update({
       kills: kills + playerToUpdate.kills,
       deaths: deaths + playerToUpdate.deaths,
