@@ -4,10 +4,6 @@
 
 - Currently, an admin has to type .next in order to change to the next map in the rotation.
 
-## Make authorized playfabids an environment variable
-
-- Authorized admin playfabids are currently hardcoded
-
 ## Once JSON is implemented in the RCON feed, update the database on killfeed, rather than map change
 
 ## Fix how averageScore stat in DB is being calculated
