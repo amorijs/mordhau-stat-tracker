@@ -1,5 +1,15 @@
 # mordhau-stat-tracking
 
+## Quick use guide
+
+1. `npm install`
+2. Create a file named `.env` which contains all the required environment variables
+   - Format should be `name=value` separated by new lines
+3. run`npm start`
+   - If you see a message that says `Now listening to killfeed broadcasts` then it launched successfully
+4. Go to your mordhau server. Try typing `.startmatch <mapname> <mapname> <mapname>` in chat. Minimum 1 map.
+5. Map should change and stat tracking should be enabled.
+
 ## Required Environment Variables
 
 MORDHAU_IP
@@ -27,16 +37,6 @@ NODE_ENV
 PORT
 
 - If you wish to specify a port for the server to listen on, defaults to 6000. This will be used when API for fetching stats is added
-
-## Quick use guide
-
-1. `npm install`
-2. Create a file named `.env` which contains all the required environment variables
-   - Format should be `name=value` separated by new lines
-3. run`npm start`
-   - If you see a message that says `Now listening to killfeed broadcasts` then it launched successfully
-4. Go to your mordhau server. Try typing `.startmatch <mapname> <mapname> <mapname>` in chat. Minimum 1 map.
-5. Map should change and stat tracking should be enabled.
 
 ## In game chat commands
 
