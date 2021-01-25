@@ -80,8 +80,8 @@ module.exports.end = async () => {
       });
     }
 
-    const newTotalScore = score + playerToUpdate.totalScore;
-    const newRoundsPlayed = roundsPlayed + playerToUpdate.roundsPlayed;
+    const newTotalScore = playerToUpdate.totalScore + score;
+    const newRoundsPlayed = playerToUpdate.roundsPlayed + 1;
 
     await playerToUpdate.update({
       kills: kills + playerToUpdate.kills,
