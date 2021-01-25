@@ -3,7 +3,7 @@
 ## Quick use guide
 
 1. `npm install`
-2. Create a file named `.env` which contains all the required environment variables
+2. Create a file named `.env` in root directory which contains all the required environment variables
    - Format should be `name=value` separated by new lines
 3. run`npm start`
    - If you see a message that says `Now listening to killfeed broadcasts` then it launched successfully
