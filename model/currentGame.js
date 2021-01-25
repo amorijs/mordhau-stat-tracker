@@ -74,15 +74,22 @@ module.exports.end = async () => {
       playerToUpdate = await registerPlayer({
         id: steamFabID,
         commonAlias: name,
-        averageScore: score
+        totalScore: 0,
+        roundsPlayed: 0,
+        averageScore: 0
       });
     }
+
+    const newTotalScore = score + playerToUpdate.totalScore;
+    const newRoundsPlayed = roundsPlayed + playerToUpdate.roundsPlayed;
 
     await playerToUpdate.update({
       kills: kills + playerToUpdate.kills,
       deaths: deaths + playerToUpdate.deaths,
       assists: assists + playerToUpdate.assists,
-      averageScore: Math.round((playerToUpdate.averageScore + score) / 2)
+      totalScore: newTotalScore,
+      roundsPlayed: newRoundsPlayed,
+      averageScore: Math.round(newTotalScore / newRoundsPlayed)
     });
   });
 

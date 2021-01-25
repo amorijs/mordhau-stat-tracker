@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const playerSchema = new mongoose.Schema({
   id: String,
   commonAlias: String,
-  averageScore: Number,
   kills: Number,
   assists: Number,
-  deaths: Number
+  deaths: Number,
+  totalScore: Number,
+  roundsPlayed: Number,
+  averageScore: Number
 });
 
 playerSchema.methods.addToStat = function (statName, increment) {
