@@ -1,12 +1,8 @@
 require('dotenv').config();
 
 const { Rcon } = require('rcon-client');
-const formatBuffer = require('./util/formatBuffer');
-const formatString = require('./util/formatString');
 const mongooseConnect = require('./model/mongo');
 const feed = require('./feed');
-
-const wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms));
 
 console.log('ENVIRONMENT:', process.env.NODE_ENV);
 
