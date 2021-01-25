@@ -27,25 +27,39 @@ const PlayerModel = mongoose.model('Player', playerSchema);
 const registerPlayer = ({
   id,
   commonAlias = '',
-  averageScore = 0,
   kills = 0,
   assists = 0,
-  deaths = 0
+  deaths = 0,
+  totalScore = 0,
+  roundsPlayed = 0,
+  averageScore = 0
 }) => {
   console.log('registering player...', {
     id,
     commonAlias,
-    averageScore,
     kills,
     assists,
-    deaths
+    deaths,
+    totalScore,
+    roundsPlayed,
+    averageScore
   });
 
   if (!id || typeof id !== 'string') {
     throw new Error('Player id required');
   }
 
-  const newPlayer = new PlayerModel({ id, commonAlias, averageScore, kills, assists, deaths });
+  const newPlayer = new PlayerModel({
+    id,
+    commonAlias,
+    kills,
+    assists,
+    deaths,
+    totalScore,
+    roundsPlayed,
+    averageScore
+  });
+
   return newPlayer.save();
 };
 
