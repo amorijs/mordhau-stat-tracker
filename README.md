@@ -12,29 +12,29 @@
 
 ## Required Environment Variables
 
-MORDHAU_IP
+`MORDHAU_IP`
 
 - IP for your RCON server
 
-MORDHAU_PORT
+`MORDHAU_PORT`
 
 - Port for your RCON server
 
-MORDHAU_PW
+`MORDHAU_PW`
 
 - Password for your RCON server
 
-MONGO_SRV
+`MONGO_SRV`
 
 - SRV link for your mongo database
 
 ## Optional Environment Variables
 
-NODE_ENV
+`NODE_ENV`
 
 - Used for heroku deployments, you don't have to worry about this
 
-PORT
+`PORT`
 
 - If you wish to specify a port for the server to listen on, defaults to 6000. This will be used when API for fetching stats is added
 
