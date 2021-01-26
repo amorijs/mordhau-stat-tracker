@@ -58,15 +58,6 @@
 - Minimum 1 map, can be as many as you want
 - Maps are not case sensitive
 - If any invalid maps are detected, match will not start and stat tracking will not be enabled
-- Currently only accepted maps are
-  - SKM_Steedie_Contraband
-  - SKM_Contraband
-  - SKM_Steedie_Moshpit_Big
-  - SKM_Alden
-  - SKM_Chester
-  - SKM_Moshpit
-  - SKM_steedie_Moshpit
-  - SKM_Chasm
 - EX: `.startmatch skm_moshpit skm_contraband`
 
 `.next`
