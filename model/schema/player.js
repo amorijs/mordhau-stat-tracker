@@ -63,8 +63,4 @@ const registerPlayer = ({
   return newPlayer.save();
 };
 
-const getPlayer = id => {
-  return PlayerModel.findOne({ id });
-};
-
 module.exports = { PlayerModel, registerPlayer };

@@ -1,14 +1,14 @@
 require('dotenv').config();
 
 const { Rcon } = require('rcon-client');
+const express = require('express');
+const app = express();
+
 const mongooseConnect = require('./model/mongo');
 const feed = require('./feed');
+const { PlayerModel } = require('./model/schema/player');
 
 console.log('ENVIRONMENT:', process.env.NODE_ENV);
-
-// Workaround for heroku port timeout
-const http = require('http');
-http.createServer(() => {}).listen(process.env.PORT || 6000);
 
 const rconConnect = async () => {
   const args = process.argv.slice(2);
@@ -72,4 +72,19 @@ const main = async () => {
   });
 };
 
-main().catch(console.error);
+main().catch(err => {
+  console.error('UNABLE TO START STAT TRACKING SYSTEM', err);
+  process.exit(1);
+});
+
+app.get('/players', (req, res) => {
+  PlayerModel.find()
+    .then(players => res.json(players))
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+app.listen(process.env.PORT || 5050, () => {
+  console.log('App listening on' + (process.env.PORT || 5050));
+});
