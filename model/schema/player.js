@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const playerSchema = new mongoose.Schema({
-  id: String,
+  playfab: String,
   commonAlias: String,
   kills: Number,
   assists: Number,
@@ -25,7 +25,7 @@ playerSchema.methods.addToStat = function (statName, increment) {
 const PlayerModel = mongoose.model('Player', playerSchema);
 
 const registerPlayer = ({
-  id,
+  playfab,
   commonAlias = '',
   kills = 0,
   assists = 0,
@@ -35,7 +35,7 @@ const registerPlayer = ({
   averageScore = 0
 }) => {
   console.log('registering player...', {
-    id,
+    playfab,
     commonAlias,
     kills,
     assists,
@@ -45,12 +45,12 @@ const registerPlayer = ({
     averageScore
   });
 
-  if (!id || typeof id !== 'string') {
+  if (!playfab || typeof playfab !== 'string') {
     throw new Error('Player id required');
   }
 
   const newPlayer = new PlayerModel({
-    id,
+    playfab,
     commonAlias,
     kills,
     assists,

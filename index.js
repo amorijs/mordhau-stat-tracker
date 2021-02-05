@@ -54,6 +54,7 @@ const main = async () => {
 
   console.log(await rcon.send('listen killfeed'));
   console.log(await rcon.send('listen chat'));
+  console.log(await rcon.send('listen scorefeed'));
 
   rcon.socket.on('data', buffer => {
     feed.proccessFeedData(rcon, buffer);
